@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://props/rock/LargeRock.gd" type="Script" id=1]
+[ext_resource path="res://props/rock/mesh/rock.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://base/ActionArea.tscn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.5, 2, 2.5 )
+
+[node name="LargeRock" type="StaticBody"]
+script = ExtResource( 1 )
+inspect_rate = 20.0
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Shape" type="CollisionShape" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0 )
+shape = SubResource( 1 )
+
+[node name="ActionArea" parent="." instance=ExtResource( 3 )]
+hint = "Inspect"
+start_disabled = true
+use_progress = true
+progress_size = Vector2( 100, 20 )
+
+[node name="Shape" type="CollisionShape" parent="ActionArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+shape = SubResource( 2 )
+[connection signal="used" from="ActionArea" to="." method="_on_ActionArea_used"]

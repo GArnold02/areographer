@@ -1,0 +1,414 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://themes/panel.tres" type="StyleBox" id=1]
+[ext_resource path="res://fonts/roboto.tres" type="DynamicFont" id=2]
+[ext_resource path="res://system/UI.gd" type="Script" id=3]
+[ext_resource path="res://themes/separator.tres" type="StyleBox" id=4]
+[ext_resource path="res://system/star.png" type="Texture" id=5]
+[ext_resource path="res://system/Ranking.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.435294, 0.698039, 0.776471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0.254902, 0.298039, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.196078, 0.313726, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Vertical" type="VBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mission" type="PanelContainer" parent="Vertical"]
+margin_right = 454.0
+margin_bottom = 120.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="Vertical/Mission"]
+margin_right = 454.0
+margin_bottom = 120.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 0
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Vertical" type="VBoxContainer" parent="Vertical/Mission/Margin"]
+margin_left = 5.0
+margin_right = 449.0
+margin_bottom = 115.0
+
+[node name="Label" type="Label" parent="Vertical/Mission/Margin/Vertical"]
+margin_right = 444.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.933333, 0.74902, 0.537255, 1 )
+text = "Mission"
+
+[node name="Separator" type="HSeparator" parent="Vertical/Mission/Margin/Vertical"]
+margin_top = 37.0
+margin_right = 444.0
+margin_bottom = 41.0
+custom_styles/separator = ExtResource( 4 )
+
+[node name="Location" type="HBoxContainer" parent="Vertical/Mission/Margin/Vertical"]
+margin_top = 45.0
+margin_right = 444.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="Vertical/Mission/Margin/Vertical/Location"]
+margin_right = 230.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 230, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "Location: "
+
+[node name="Value" type="Label" parent="Vertical/Mission/Margin/Vertical/Location"]
+margin_left = 234.0
+margin_right = 444.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.831373, 0.521569, 0.415686, 1 )
+text = "Martian Tharsis"
+
+[node name="Time" type="HBoxContainer" parent="Vertical/Mission/Margin/Vertical"]
+margin_top = 82.0
+margin_right = 444.0
+margin_bottom = 115.0
+
+[node name="Label" type="Label" parent="Vertical/Mission/Margin/Vertical/Time"]
+margin_right = 230.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 230, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "Duration: "
+
+[node name="Value" type="Label" parent="Vertical/Mission/Margin/Vertical/Time"]
+margin_left = 234.0
+margin_right = 332.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.831373, 0.521569, 0.415686, 1 )
+text = "10 days"
+
+[node name="Status" type="PanelContainer" parent="Vertical"]
+margin_top = 124.0
+margin_right = 454.0
+margin_bottom = 207.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="Vertical/Status"]
+margin_right = 454.0
+margin_bottom = 83.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 0
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Vertical" type="VBoxContainer" parent="Vertical/Status/Margin"]
+margin_left = 5.0
+margin_right = 449.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="Vertical/Status/Margin/Vertical"]
+margin_right = 444.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.517647, 0.772549, 0.882353, 1 )
+text = "Status"
+
+[node name="Separator" type="HSeparator" parent="Vertical/Status/Margin/Vertical"]
+margin_top = 37.0
+margin_right = 444.0
+margin_bottom = 41.0
+custom_styles/separator = ExtResource( 4 )
+
+[node name="Oxygen" type="HBoxContainer" parent="Vertical/Status/Margin/Vertical"]
+margin_top = 45.0
+margin_right = 444.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="Vertical/Status/Margin/Vertical/Oxygen"]
+margin_right = 112.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+text = "Oxygen: "
+
+[node name="Progress" type="ProgressBar" parent="Vertical/Status/Margin/Vertical/Oxygen"]
+margin_left = 116.0
+margin_right = 416.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 300, 20 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+custom_fonts/font = ExtResource( 2 )
+step = 1.0
+value = 50.0
+
+[node name="Task" type="PanelContainer" parent="Vertical"]
+visible = false
+margin_top = 211.0
+margin_right = 454.0
+margin_bottom = 331.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="Vertical/Task"]
+margin_right = 454.0
+margin_bottom = 120.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 0
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Vertical" type="VBoxContainer" parent="Vertical/Task/Margin"]
+margin_left = 5.0
+margin_right = 449.0
+margin_bottom = 115.0
+
+[node name="Label" type="Label" parent="Vertical/Task/Margin/Vertical"]
+margin_right = 444.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.741176, 0.843137, 0.603922, 1 )
+text = "Current Task"
+
+[node name="Separator" type="HSeparator" parent="Vertical/Task/Margin/Vertical"]
+margin_top = 37.0
+margin_right = 444.0
+margin_bottom = 41.0
+custom_styles/separator = ExtResource( 4 )
+
+[node name="Value" type="Label" parent="Vertical/Task/Margin/Vertical"]
+margin_top = 45.0
+margin_right = 444.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+text = "[none]"
+
+[node name="Deadline" type="HBoxContainer" parent="Vertical/Task/Margin/Vertical"]
+margin_top = 82.0
+margin_right = 444.0
+margin_bottom = 115.0
+
+[node name="Label" type="Label" parent="Vertical/Task/Margin/Vertical/Deadline"]
+margin_right = 140.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+text = "Deadline: "
+
+[node name="Value" type="Label" parent="Vertical/Task/Margin/Vertical/Deadline"]
+margin_left = 144.0
+margin_right = 298.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+text = "100 seconds"
+
+[node name="ActionHint" type="PanelContainer" parent="."]
+visible = false
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="ActionHint"]
+margin_right = 52.0
+margin_bottom = 43.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Vertical" type="VBoxContainer" parent="ActionHint/Margin"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 47.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="ActionHint/Margin/Vertical"]
+margin_right = 42.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+text = "[E]"
+align = 1
+valign = 1
+
+[node name="Progress" type="ProgressBar" parent="ActionHint/Margin/Vertical"]
+visible = false
+margin_top = 37.0
+margin_right = 42.0
+margin_bottom = 51.0
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+step = 1.0
+percent_visible = false
+
+[node name="EndCard" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="EndCard"]
+margin_left = 532.0
+margin_top = 320.0
+margin_right = 532.0
+margin_bottom = 320.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="EndCard/Panel"]
+margin_right = 346.0
+margin_bottom = 246.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Vertical" type="VBoxContainer" parent="EndCard/Panel/Margin"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 341.0
+margin_bottom = 241.0
+
+[node name="Label" type="Label" parent="EndCard/Panel/Margin/Vertical"]
+margin_right = 336.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.933333, 0.74902, 0.537255, 1 )
+text = "Mission completed!"
+align = 1
+
+[node name="Separator" type="HSeparator" parent="EndCard/Panel/Margin/Vertical"]
+margin_top = 37.0
+margin_right = 336.0
+margin_bottom = 41.0
+custom_styles/separator = ExtResource( 4 )
+
+[node name="SuccessfulTasks" type="HBoxContainer" parent="EndCard/Panel/Margin/Vertical"]
+margin_top = 45.0
+margin_right = 336.0
+margin_bottom = 78.0
+alignment = 1
+
+[node name="Label" type="Label" parent="EndCard/Panel/Margin/Vertical/SuccessfulTasks"]
+margin_left = 22.0
+margin_right = 282.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Successful tasks: "
+
+[node name="Value" type="Label" parent="EndCard/Panel/Margin/Vertical/SuccessfulTasks"]
+margin_left = 286.0
+margin_right = 314.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "10"
+align = 2
+
+[node name="FailedTasks" type="HBoxContainer" parent="EndCard/Panel/Margin/Vertical"]
+margin_top = 82.0
+margin_right = 336.0
+margin_bottom = 115.0
+alignment = 1
+
+[node name="Label" type="Label" parent="EndCard/Panel/Margin/Vertical/FailedTasks"]
+margin_left = 22.0
+margin_right = 282.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Failed Tasks:"
+
+[node name="Value" type="Label" parent="EndCard/Panel/Margin/Vertical/FailedTasks"]
+margin_left = 286.0
+margin_right = 314.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "10"
+align = 2
+
+[node name="Separator2" type="HSeparator" parent="EndCard/Panel/Margin/Vertical"]
+margin_top = 119.0
+margin_right = 336.0
+margin_bottom = 123.0
+custom_styles/separator = ExtResource( 4 )
+
+[node name="Ranking" type="HBoxContainer" parent="EndCard/Panel/Margin/Vertical"]
+margin_top = 127.0
+margin_right = 336.0
+margin_bottom = 191.0
+alignment = 1
+script = ExtResource( 6 )
+
+[node name="Star1" type="TextureRect" parent="EndCard/Panel/Margin/Vertical/Ranking"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 5 )
+
+[node name="Star2" type="TextureRect" parent="EndCard/Panel/Margin/Vertical/Ranking"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = ExtResource( 5 )
+
+[node name="Star3" type="TextureRect" parent="EndCard/Panel/Margin/Vertical/Ranking"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture = ExtResource( 5 )
+
+[node name="Star4" type="TextureRect" parent="EndCard/Panel/Margin/Vertical/Ranking"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+texture = ExtResource( 5 )
+
+[node name="Star5" type="TextureRect" parent="EndCard/Panel/Margin/Vertical/Ranking"]
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
+texture = ExtResource( 5 )
+
+[node name="Separator3" type="HSeparator" parent="EndCard/Panel/Margin/Vertical"]
+margin_top = 195.0
+margin_right = 336.0
+margin_bottom = 199.0
+custom_styles/separator = ExtResource( 4 )
+
+[node name="Survived" type="Label" parent="EndCard/Panel/Margin/Vertical"]
+margin_top = 203.0
+margin_right = 336.0
+margin_bottom = 236.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.933333, 0.74902, 0.537255, 1 )
+text = "Survived 10 days"
+align = 1

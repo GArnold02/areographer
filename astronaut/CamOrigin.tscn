@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://astronaut/scripts/CamOrigin.gd" type="Script" id=1]
+
+
+[node name="CamOrigin" type="Spatial"]
+script = ExtResource( 1 )
+smoothing = 0.5
+sensitivity = 8.0
+
+[node name="Height" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1, 0 )
+
+[node name="Camera" type="ClippedCamera" parent="Height"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+current = true
+margin = 0.6

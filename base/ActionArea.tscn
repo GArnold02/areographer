@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://base/ActionArea.gd" type="Script" id=1]
+
+[node name="ActionArea" type="Area"]
+collision_mask = 2
+script = ExtResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_ActionArea_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_ActionArea_body_exited"]

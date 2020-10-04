@@ -1,0 +1,12 @@
+{
+    "label": "Inspect rock formation",
+    "tag":"",
+    "selector": {
+        "type": "random",
+        "node": "Rocks"
+    },
+    "goal": {
+        "type": "inspect",
+        "deadline": 30
+    }
+}

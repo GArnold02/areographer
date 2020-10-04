@@ -1,0 +1,12 @@
+{
+    "label": "Pick up supply crate",
+    "tag": "gen-crate",
+    "selector": {
+        "type": "specific",
+        "node": "Crate"
+    },
+    "goal": {
+        "type": "pick_up",
+        "deadline": 40
+    }
+}
